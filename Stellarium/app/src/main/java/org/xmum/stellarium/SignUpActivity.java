@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.xmum.stellarium.utils.DbQuery;
+
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
@@ -26,6 +30,9 @@ public class SignUpActivity extends AppCompatActivity {
     private AppCompatButton btnSignUp;
 
     private String usernameStr, emailStr, pwdStr,confirmPwdStr;
+
+    private Dialog progressDialog;
+    private TextView dialogText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,14 @@ public class SignUpActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.btn_login);
         btnSignUp = findViewById(R.id.btn_sign_up);
+
+        progressDialog = new Dialog(SignUpActivity.this);
+        progressDialog.setContentView(R.layout.dialog_layout);
+        progressDialog.setCancelable(false);
+        progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        dialogText = progressDialog.findViewById(R.id.dialog_text);
+        dialogText.setText("Registering user...");
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,9 +107,24 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("SIGNUP", "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
 
-                            onSuccessCreateNewAccount();
+                            // update database
+                            DbQuery.createUserData(emailStr, usernameStr, new MyCompleteListener(){
+
+                                @Override
+                                public void onSuccess() {
+                                    progressDialog.dismiss();
+                                    Toast.makeText(SignUpActivity.this, "Successfully signed up!", Toast.LENGTH_SHORT).show();
+                                    onSuccessCreateNewAccount();
+                                }
+
+                                @Override
+                                public void onFailure() {
+                                    progressDialog.dismiss();
+                                    Toast.makeText(SignUpActivity.this, "Something went wrong... Try later...", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
 
                         } else {
                             // If sign in fails, display a message to the user.

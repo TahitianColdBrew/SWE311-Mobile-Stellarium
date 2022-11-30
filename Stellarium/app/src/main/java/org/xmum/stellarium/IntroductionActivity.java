@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.xmum.stellarium.utils.DbQuery;
 
 public class IntroductionActivity extends AppCompatActivity {
 
@@ -21,6 +24,7 @@ public class IntroductionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_introduction);
 
         mAuth = FirebaseAuth.getInstance();
+        DbQuery.g_firestore = FirebaseFirestore.getInstance();
 
         btnStart = findViewById(R.id.btn_start);
 
