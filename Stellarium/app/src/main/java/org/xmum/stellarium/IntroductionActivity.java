@@ -32,8 +32,18 @@ public class IntroductionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(mAuth.getCurrentUser() != null){
-                    Intent intent = new Intent(IntroductionActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    DbQuery.loadCategories(new MyCompleteListener() {
+                        @Override
+                        public void onSuccess() {
+                            Intent intent = new Intent(IntroductionActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onFailure() {
+
+                        }
+                    });
                 }else{
                     Intent intent = new Intent(IntroductionActivity.this, LoginActivity.class);
                     startActivity(intent);

@@ -18,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.xmum.stellarium.utils.DbQuery;
+
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
@@ -75,6 +77,18 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("LOGIN", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            DbQuery.loadCategories(new MyCompleteListener() {
+                                @Override
+                                public void onSuccess() {
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onFailure() {
+
+                                }
+                            });
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("LOGIN", "signInWithEmail:failure", task.getException());

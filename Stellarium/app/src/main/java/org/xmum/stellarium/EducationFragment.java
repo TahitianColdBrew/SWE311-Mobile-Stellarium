@@ -11,6 +11,7 @@ import android.widget.GridView;
 
 import org.xmum.stellarium.adapter.CategoryAdapter;
 import org.xmum.stellarium.model.CategoryModel;
+import org.xmum.stellarium.utils.DbQuery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class EducationFragment extends Fragment {
     private GridView catView;
-    private List<CategoryModel> catList = new ArrayList<>();
+//    private List<CategoryModel> catList = new ArrayList<>();
 
     public EducationFragment() {
         // Required empty public constructor
@@ -32,21 +33,21 @@ public class EducationFragment extends Fragment {
 
         catView = view.findViewById(R.id.cat_Grid);
 
-        loadCategories();
+//        loadCategories();
 
-        CategoryAdapter adapter = new CategoryAdapter(catList);
+        CategoryAdapter adapter = new CategoryAdapter(DbQuery.g_catList);
         catView.setAdapter(adapter);
 
         return view;
     }
 
-    private void loadCategories(){
-        catList.clear();
-        catList.add(new CategoryModel("Earth and Moon"));
-        catList.add(new CategoryModel("Solar System"));
-        catList.add(new CategoryModel("Milky Way Galaxy"));
-        catList.add(new CategoryModel("Rocket"));
-        catList.add(new CategoryModel("Black Hole"));
-        catList.add(new CategoryModel("Universe"));
-    }
+//    private void loadCategories(){
+//        catList.clear();
+//        catList.add(new CategoryModel("Earth and Moon"));
+//        catList.add(new CategoryModel("Solar System"));
+//        catList.add(new CategoryModel("Milky Way Galaxy"));
+//        catList.add(new CategoryModel("Rocket"));
+//        catList.add(new CategoryModel("Black Hole"));
+//        catList.add(new CategoryModel("Universe"));
+//    }
 }

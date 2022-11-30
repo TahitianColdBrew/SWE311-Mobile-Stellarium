@@ -114,8 +114,20 @@ public class SignUpActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess() {
                                     progressDialog.dismiss();
-                                    Toast.makeText(SignUpActivity.this, "Successfully signed up!", Toast.LENGTH_SHORT).show();
-                                    onSuccessCreateNewAccount();
+                                    Toast.makeText(SignUpActivity.this, "Successfully signed up!", Toast.LENGTH_SHORT).show();;
+                                    DbQuery.loadCategories(new MyCompleteListener() {
+                                        @Override
+                                        public void onSuccess() {
+                                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                                            startActivity(intent);
+                                        }
+
+                                        @Override
+                                        public void onFailure() {
+
+                                        }
+                                    });
+
                                 }
 
                                 @Override

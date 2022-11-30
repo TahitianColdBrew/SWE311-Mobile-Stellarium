@@ -4,7 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.xmum.stellarium.R;
 import org.xmum.stellarium.model.CategoryModel;
@@ -51,7 +54,10 @@ public class CategoryAdapter extends BaseAdapter {
         });
 
         TextView catName = myView.findViewById(R.id.catName);
+        ImageView catImg = myView.findViewById(R.id.catImg);
+
         catName.setText(cat_list.get(position).getName());
+        Picasso.get().load(cat_list.get(position).getUrl()).into(catImg);
 
         return myView;
     }

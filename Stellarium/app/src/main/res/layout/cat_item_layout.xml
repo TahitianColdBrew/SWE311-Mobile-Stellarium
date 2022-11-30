@@ -22,7 +22,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/catImg"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="16dp"

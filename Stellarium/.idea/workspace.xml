@@ -12,10 +12,14 @@
     <list default="true" id="515a74b5-a255-4491-a231-42ae38ce4aab" name="Default Changelist" comment="firebase account fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/EducationFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/EducationFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/IntroductionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/IntroductionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/ProfileFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/LoginActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/SignUpActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/SignUpActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/adapter/CategoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/adapter/CategoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/model/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/model/CategoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/utils/DbQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/utils/DbQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cat_item_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cat_item_layout.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
