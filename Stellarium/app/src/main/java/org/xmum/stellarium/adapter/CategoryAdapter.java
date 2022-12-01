@@ -1,5 +1,9 @@
 package org.xmum.stellarium.adapter;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.InsetDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,10 +11,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatButton;
+
 import com.squareup.picasso.Picasso;
 
 import org.xmum.stellarium.R;
 import org.xmum.stellarium.model.CategoryModel;
+import org.xmum.stellarium.utils.DbQuery;
 
 import java.util.List;
 
@@ -49,7 +56,51 @@ public class CategoryAdapter extends BaseAdapter {
         myView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-               //TODO: choose an category
+                DbQuery.g_selectedCatIndex = position;
+
+                Dialog dialog = new Dialog(parent.getContext());
+                dialog.setContentView(R.layout.education_choose_dialog);
+                dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_background);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialog.setCancelable(false);
+//                dialog.getWindow().setBackgroundDrawable(new InsetDrawable(new ColorDrawable(Color.TRANSPARENT), 20));
+
+                ImageView catImg, btnClose;
+                TextView catName;
+                AppCompatButton btnLearn, btnQuiz;
+
+                catImg = dialog.findViewById(R.id.catImg);
+                catName = dialog.findViewById(R.id.catName);
+                btnLearn = dialog.findViewById(R.id.btn_learn);
+                btnQuiz = dialog.findViewById(R.id.btn_quiz);
+                btnClose = dialog.findViewById(R.id.btn_close);
+
+                btnClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+                btnQuiz.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // TODO: load questions for selected category
+                    }
+                });
+
+                btnLearn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // TODO: jump to education page
+                    }
+                });
+
+                Picasso.get().load(cat_list.get(position).getUrl()).into(catImg);
+                catName.setText(cat_list.get(position).getName());
+
+                dialog.show();
+
             }
         });
 

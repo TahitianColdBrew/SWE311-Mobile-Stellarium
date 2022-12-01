@@ -22,6 +22,7 @@ import java.util.Map;
 
 public class DbQuery {
 
+    public static int g_selectedCatIndex = -1;
     public static FirebaseFirestore g_firestore;
     public static List<CategoryModel> g_catList = new ArrayList<>();
 
