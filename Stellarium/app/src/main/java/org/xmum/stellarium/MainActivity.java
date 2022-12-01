@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.appBarMain.toolbar);
+        // setSupportActionBar(binding.appBarMain.toolbar);
 
         // add my own code below to set up for the bottom navigation bar
 
