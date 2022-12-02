@@ -7,6 +7,17 @@ public class CategoryModel {
     private int time;
     private int noOfQuestions;
 
+    private int bestScore;
+    // TODO: how to get best score???
+
+
+    public int getBestScore() {
+        return bestScore;
+    }
+
+    public void setBestScore(int bestScore) {
+        this.bestScore = bestScore;
+    }
 
     public CategoryModel(){}
 

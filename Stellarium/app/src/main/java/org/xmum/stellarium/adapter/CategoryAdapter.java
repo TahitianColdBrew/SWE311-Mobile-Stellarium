@@ -1,9 +1,7 @@
 package org.xmum.stellarium.adapter;
 
 import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.InsetDrawable;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +14,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import com.squareup.picasso.Picasso;
 
 import org.xmum.stellarium.R;
+import org.xmum.stellarium.StartTestActivity;
 import org.xmum.stellarium.model.CategoryModel;
 import org.xmum.stellarium.utils.DbQuery;
 
@@ -86,6 +85,8 @@ public class CategoryAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View view) {
                         // TODO: load questions for selected category
+                        Intent intent = new Intent(view.getContext(), StartTestActivity.class);
+                        view.getContext().startActivity(intent);
                     }
                 });
 

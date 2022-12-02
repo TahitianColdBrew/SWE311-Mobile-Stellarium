@@ -6,6 +6,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -14,6 +15,7 @@ import com.google.firebase.firestore.WriteBatch;
 
 import org.xmum.stellarium.MyCompleteListener;
 import org.xmum.stellarium.model.CategoryModel;
+import org.xmum.stellarium.model.QuestionModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +27,7 @@ public class DbQuery {
     public static int g_selectedCatIndex = -1;
     public static FirebaseFirestore g_firestore;
     public static List<CategoryModel> g_catList = new ArrayList<>();
+    public static List<QuestionModel> g_questionList = new ArrayList<>();
 
     public static void createUserData(String email, String name, MyCompleteListener completeListener) {
         Map<String, Object> user = new HashMap<>();
@@ -88,6 +91,37 @@ public class DbQuery {
                 completeListener.onSuccess();
             }
         });
+    }
+
+    public static void loadQuestions(MyCompleteListener completeListener) {
+        g_questionList.clear();
+
+        g_firestore.collection("QUESTIONS")
+                .whereEqualTo("CATEGORY", g_catList.get(g_selectedCatIndex).getCid())
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for (DocumentSnapshot doc : queryDocumentSnapshots) {
+                            g_questionList.add(new QuestionModel(
+                                    doc.getString("QUESTION"),
+                                    doc.getString("A"),
+                                    doc.getString("B"),
+                                    doc.getString("C"),
+                                    doc.getString("D"),
+                                    doc.getLong("ANSWER").intValue()
+                            ));
+                        }
+
+                        completeListener.onSuccess();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        completeListener.onFailure();
+                    }
+                });
     }
 
 }
