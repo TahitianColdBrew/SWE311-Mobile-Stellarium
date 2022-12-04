@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +78,9 @@ public class StartTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // TODO: create pages to answer questions
+                Intent intent = new Intent(StartTestActivity.this,QuestionActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

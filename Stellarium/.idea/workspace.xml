@@ -10,17 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="515a74b5-a255-4491-a231-42ae38ce4aab" name="Default Changelist" comment="firebase account fix">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/StartTestActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/model/QuestionModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/clock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/medal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/question_mark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_start_test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/QuestionActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/adapter/QuestionAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/selected_button.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/unselected_button.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_question.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/question_item_layout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/adapter/CategoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/adapter/CategoryAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/model/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/model/CategoryModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/utils/DbQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/utils/DbQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/StartTestActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/xmum/stellarium/StartTestActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +77,7 @@
         <option value="Class" />
         <option value="layoutResourceFile_vertical" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -88,7 +88,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IGJJpnvTogaGEs19j9Lx6fP6R0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -99,20 +101,25 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
       <recent name="$PROJECT_DIR$/app" />
     </key>
+    <key name="android.template.353468147">
+      <recent name="org.xmum.stellarium" />
+    </key>
     <key name="android.template.394920489">
       <recent name="org.xmum.stellarium" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.xmum.stellarium.adapter" />
       <recent name="org.xmum.stellarium.model" />
     </key>
   </component>
