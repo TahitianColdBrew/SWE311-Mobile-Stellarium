@@ -62,7 +62,6 @@ public class CategoryAdapter extends BaseAdapter {
                 dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_background);
                 dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 dialog.setCancelable(false);
-//                dialog.getWindow().setBackgroundDrawable(new InsetDrawable(new ColorDrawable(Color.TRANSPARENT), 20));
 
                 ImageView catImg, btnClose;
                 TextView catName;

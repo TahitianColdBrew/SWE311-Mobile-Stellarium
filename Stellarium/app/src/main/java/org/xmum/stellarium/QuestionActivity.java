@@ -1,21 +1,21 @@
 package org.xmum.stellarium;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import org.xmum.stellarium.adapter.QuestionAdapter;
 import org.xmum.stellarium.utils.DbQuery;
@@ -116,20 +116,20 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void submitTest() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(QuestionActivity.this);
-        builder.setCancelable(true);
+        Dialog dialog = new Dialog(QuestionActivity.this);
+        dialog.setContentView(R.layout.submit_quiz_dialog);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_background);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(true);
 
-        View view = getLayoutInflater().inflate(R.layout.submit_quiz_dialog, null);
-        AppCompatButton cancelB = view.findViewById(R.id.btn_cancel_dialog);
-        AppCompatButton confirmB = view.findViewById(R.id.btn_submit_dialog);
+        AppCompatButton cancelB = dialog.findViewById(R.id.btn_cancel_dialog);
+        AppCompatButton confirmB = dialog.findViewById(R.id.btn_submit_dialog);
 
-        builder.setView(view);
-        AlertDialog alertDialog = builder.create();
 
         cancelB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alertDialog.dismiss();
+                dialog.dismiss();
             }
         });
 
@@ -137,7 +137,7 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 timer.cancel();
-                alertDialog.dismiss();
+                dialog.dismiss();
 
                 Intent intent = new Intent(QuestionActivity.this, ScoreActivity.class);
                 long totalTime = DbQuery.g_catList.get(DbQuery.g_selectedCatIndex).getTime() * 60 * 1000;
@@ -147,7 +147,7 @@ public class QuestionActivity extends AppCompatActivity {
             }
         });
 
-        alertDialog.show();
+        dialog.show();
     }
 
     private void startTimer() {
