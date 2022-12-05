@@ -7,6 +7,7 @@ public class QuestionModel {
     private String optionC;
     private String optionD;
     private int correctAns;
+    private int selectedAns;
 
     public QuestionModel(){}
 
@@ -17,6 +18,15 @@ public class QuestionModel {
         this.optionC = optionC;
         this.optionD = optionD;
         this.correctAns = correctAns;
+        selectedAns = -1;
+    }
+
+    public int getSelectedAns() {
+        return selectedAns;
+    }
+
+    public void setSelectedAns(int selectedAns) {
+        this.selectedAns = selectedAns;
     }
 
     public String getQuestion() {
