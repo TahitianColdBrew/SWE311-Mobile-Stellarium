@@ -1,11 +1,11 @@
 package org.xmum.stellarium;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -31,20 +31,30 @@ public class IntroductionActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mAuth.getCurrentUser() != null){
+                if (mAuth.getCurrentUser() != null) {
                     DbQuery.loadCategories(new MyCompleteListener() {
                         @Override
                         public void onSuccess() {
-                            Intent intent = new Intent(IntroductionActivity.this, MainActivity.class);
-                            startActivity(intent);
+                            DbQuery.loadMyScores(new MyCompleteListener() {
+                                @Override
+                                public void onSuccess() {
+                                    Intent intent = new Intent(IntroductionActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onFailure() {
+                                    // TODO: on failure
+                                }
+                            });
                         }
 
                         @Override
                         public void onFailure() {
-
+                            // TODO: on failure
                         }
                     });
-                }else{
+                } else {
                     Intent intent = new Intent(IntroductionActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }

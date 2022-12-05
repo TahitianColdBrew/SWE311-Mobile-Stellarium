@@ -11,11 +11,13 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.firestore.WriteBatch;
 
 import org.xmum.stellarium.MyCompleteListener;
 import org.xmum.stellarium.model.CategoryModel;
 import org.xmum.stellarium.model.QuestionModel;
+import org.xmum.stellarium.model.RankModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +30,68 @@ public class DbQuery {
     public static FirebaseFirestore g_firestore;
     public static List<CategoryModel> g_catList = new ArrayList<>();
     public static List<QuestionModel> g_questionList = new ArrayList<>();
+
+    public static RankModel myPerformance = new RankModel(0, -1);
+
+    public static void loadMyScores(MyCompleteListener completeListener){
+        g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getUid())
+                .collection("USER_DATA").document("MY_SCORES")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        for(int i = 0;i < g_catList.size();i++){
+                            int top = 0;
+                            if(documentSnapshot.get(g_catList.get(i).getCid()) != null){
+                                top = documentSnapshot.getLong(g_catList.get(i).getCid()).intValue();
+                            }
+                            g_catList.get(i).setBestScore(top);
+                        }
+                        completeListener.onSuccess();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        completeListener.onFailure();
+                    }
+                });
+    }
+
+    public static void saveResult(int score, MyCompleteListener completeListener) {
+        WriteBatch batch = g_firestore.batch();
+
+        DocumentReference userDoc = g_firestore.collection("USERS").document(FirebaseAuth.getInstance().getUid());
+
+        batch.update(userDoc, "TOTAL_SCORE", score);
+
+        if (score > g_catList.get(g_selectedCatIndex).getBestScore()) {
+            DocumentReference scoreDoc = userDoc.collection("USER_DATA").document("MY_SCORES");
+
+            Map<String, Object> testData = new HashMap<>();
+            testData.put(g_catList.get(g_selectedCatIndex).getCid(), score);
+
+            batch.set(scoreDoc, testData, SetOptions.merge());
+        }
+
+        batch.commit()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        if (score > g_catList.get(g_selectedCatIndex).getBestScore()) {
+                            g_catList.get(g_selectedCatIndex).setBestScore(score);
+                        }
+                        myPerformance.setScore(score);
+                        completeListener.onSuccess();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        completeListener.onFailure();
+                    }
+                });
+    }
 
     public static void createUserData(String email, String name, MyCompleteListener completeListener) {
         Map<String, Object> user = new HashMap<>();
