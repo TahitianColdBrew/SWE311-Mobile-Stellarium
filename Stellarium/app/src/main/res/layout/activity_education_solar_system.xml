@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F1"
+    android:id="@+id/myLayout"
+    tools:context=".Education_SolarSystem">
+
+  <ImageButton
+      android:id="@+id/btnEarth"
+      android:layout_width="149dp"
+      android:layout_height="124dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/earth"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.557"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.191"
+      tools:ignore="SpeakableTextPresentCheck" />
+
+  <ImageButton
+      android:id="@+id/btnBStar"
+      android:layout_width="72dp"
+      android:layout_height="66dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/bluestar"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.928"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.075" />
+
+  <ImageButton
+      android:id="@+id/btnMercury"
+      android:layout_width="81dp"
+      android:layout_height="79dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/mercury"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.048"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.216" />
+
+
+  <ImageButton
+      android:id="@+id/btnVenus"
+      android:layout_width="109dp"
+      android:layout_height="99dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/venus"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.192"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.05" />
+
+  <ImageButton
+      android:id="@+id/btnMars"
+      android:layout_width="81dp"
+      android:layout_height="79dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/mars"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.951"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.259" />
+  <ImageButton
+      android:id="@+id/btnSaturn"
+      android:layout_width="175dp"
+      android:layout_height="131dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/saturn"
+      android:text="Saturn"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.932"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.99" />
+
+  <ImageButton
+      android:id="@+id/btnNeptune"
+      android:layout_width="187dp"
+      android:layout_height="137dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/neptune"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.071"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="1.0"
+      tools:ignore="SpeakableTextPresentCheck" />
+
+  <ImageButton
+      android:id="@+id/btnPluto"
+      android:layout_width="117dp"
+      android:layout_height="101dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/pluto"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.054"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.744"
+      tools:ignore="SpeakableTextPresentCheck" />
+
+  <ImageButton
+      android:id="@+id/btnSun"
+      android:layout_width="269dp"
+      android:layout_height="207dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/sun"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:ignore="SpeakableTextPresentCheck" />
+
+  <ImageButton
+      android:id="@+id/btnJupiter"
+      android:layout_width="174dp"
+      android:layout_height="156dp"
+      android:background="#FFF5F1"
+      android:contentDescription="@string/app_name"
+      android:scaleType="centerInside"
+      android:src="@drawable/jupiter"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.476" />
+
+  <ImageButton
+      android:id="@+id/btnUranus"
+      android:layout_width="195dp"
+      android:layout_height="162dp"
+      android:background="#FFF5F1"
+      android:scaleType="centerInside"
+      android:src="@drawable/uranus"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.98"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.734"
+      tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
