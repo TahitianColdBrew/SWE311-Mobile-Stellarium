@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E1EDFD"
+    android:background="#DCF0F2"
     tools:context=".QuestionActivity">
 
     <LinearLayout
@@ -17,43 +17,80 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/btnLast"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@drawable/ic_last_question"
-            android:layout_marginRight="80dp"/>
+            android:layout_marginRight="80dp"
+            android:src="@drawable/ic_last_question" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="8dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_margin="8dp"
                 android:gravity="center"
-                android:layout_margin="8dp">
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/clock" />
+
                 <TextView
+                    android:id="@+id/tvTimer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
                     android:text="15 min 25 sec"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:layout_margin="4dp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
         <ImageView
-            android:id="@+id/btnNextt"
+            android:id="@+id/btnNext"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@drawable/ic_next_question"
-            android:layout_marginLeft="80dp"/>
+            android:layout_marginLeft="80dp"
+            android:src="@drawable/ic_next_question" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:circularflow_radiusInDP="12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
+
+        <TextView
+            android:id="@+id/tvQuestionID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="0.9"
+            android:text="QUESTION 1/2"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnBookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:src="@drawable/ic_bookmark" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -61,9 +98,30 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:gravity="center"
+        app:circularflow_radiusInDP="12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_submit"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/button_background"
+            android:text="Finish this attempt" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
